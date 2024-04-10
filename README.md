@@ -1,8 +1,19 @@
-Associative Arrays
+Associative Arrays Redo
 ==================
 
-Starter code for a project on associative arrays.
+Medhashree Adhikari
+April 14, 2024
 
-_Students should replace the contents of this file with appropriate
-contents, including author and date._
+Acknowledgements:
+  ---> Evening Tutors
+    --> Boston
+    --> Ishitha
+  ---> Peers
+    --> Alyssa Trapp
+  ---> Links
+    -->https://docs.oracle.com/javase/8/docs/api/java/lang/String.html
+    -->https://rebelsky.cs.grinnell.edu/Courses/CSC207/2024Sp/mps/mp04.html
 
+Description
+  This system works to set, get, and removes keys and values from an array. It also
+  checks if it has a key, what the size is, and turns it into a string.

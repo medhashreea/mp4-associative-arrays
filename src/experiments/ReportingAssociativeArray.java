@@ -1,8 +1,10 @@
 package experiments;
 
 import java.io.PrintWriter;
+
 import structures.AssociativeArray;
 import structures.KeyNotFoundException;
+import structures.NullKeyException;
 
 /**
  * An extension of the AssociativeArray class that reports each
@@ -49,8 +51,10 @@ public class ReportingAssociativeArray<K,V> extends AssociativeArray<K,V> {
    */
   public void set(K key, V value) {
     pen.println(name + ".set(" + key + ", " + value + ")");
-    super.set(key, value);
-    pen.println("  " + name + ": " + this.toString());
+    try {
+      super.set(key, value);
+      pen.println("  " + name + ": " + this.toString());
+    } catch (NullKeyException e){}  
   } // set (K,V)
 
   /**
@@ -87,8 +91,9 @@ public class ReportingAssociativeArray<K,V> extends AssociativeArray<K,V> {
    * Remove the key/value pair associated with a key.  Future calls
    * to get(key) will throw an exception.  If the key does not appear
    * in the associative array, does nothing.
+   * @throws KeyNotFoundException 
    */
-  public void remove(K key) {
+  public void remove(K key) throws KeyNotFoundException {
     pen.println(name + ".remove(" + key + ")");
     super.remove(key);
     pen.println("  " + name + ": " + this.toString());

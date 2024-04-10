@@ -4,12 +4,12 @@ import java.io.PrintWriter;
 import java.math.BigInteger;
 
 import structures.AssociativeArray;
-import structures.KeyNotFoundException;
+import structures.NullKeyException;
 
 /**
  * Experiments with our AssociativeArray class.
  *
- * @author Your Name Here
+ * @author Medhashree Adhikari
  * @author Samuel A. Rebelsky
  */
 public class AssociativeArrayExperiments {
@@ -21,7 +21,7 @@ public class AssociativeArrayExperiments {
   /**
    * Run the experiments.
    */
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
     PrintWriter pen = new PrintWriter(System.out, true);
 
     divider(pen);
@@ -39,7 +39,7 @@ public class AssociativeArrayExperiments {
    * Our first experiment: Associative arrays with strings as both keys 
    * and values.
    */
-  public static void expreimentStringsToStrings(PrintWriter pen) {
+  public static void expreimentStringsToStrings(PrintWriter pen) throws Exception {
     AssociativeArray<String,String> s2s = 
       new ReportingAssociativeArray<String,String>("s2s", pen);
     s2s.size();
@@ -70,17 +70,23 @@ public class AssociativeArrayExperiments {
 
     // Set some values
     for (int i = 0; i < 11; i++) {
-      b2b.set(BigInteger.valueOf(i), BigInteger.valueOf(i*i));
+      try {
+        b2b.set(BigInteger.valueOf(i), BigInteger.valueOf(i*i));
+      } catch (NullKeyException e) { }
     } // for
 
     // Then get them
     for (int i = 0; i < 11; i++) {
-      try { b2b.get(BigInteger.valueOf(i)); } catch (Exception e) { }
+      try { 
+        b2b.get(BigInteger.valueOf(i)); 
+      } catch (Exception e) { }
     } // for
 
     // Then remove some of them
     for (int i = 1; i < 11; i += 2) {
-      b2b.remove(BigInteger.valueOf(i));
+      try {
+        b2b.remove(BigInteger.valueOf(i));
+      } catch (Exception e) { }
     } // for
 
     // Then see what happens when we get them
@@ -90,7 +96,9 @@ public class AssociativeArrayExperiments {
 
     // Then reset or set some values
     for (int i = 0; i < 11; i += 3) {
-      b2b.set(BigInteger.valueOf(i), BigInteger.valueOf(i + 10));
+      try {
+        b2b.set(BigInteger.valueOf(i), BigInteger.valueOf(i + 10));
+      } catch (NullKeyException e) { }
     } // for
 
     // Then see what happens when we get them

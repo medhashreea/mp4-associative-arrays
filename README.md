@@ -1,5 +1,7 @@
-Associative Arrays Redo
+Associative Arrays
 ==================
+
+git@github.com:medhashreea/mp4-associative-arrays.git
 
 Medhashree Adhikari
 April 14, 2024
@@ -8,6 +10,7 @@ Acknowledgements:
   ---> Evening Tutors
     --> Boston
     --> Ishitha
+    --> Audrey
   ---> Peers
     --> Alyssa Trapp
   ---> Links
